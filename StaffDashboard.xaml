@@ -1,0 +1,76 @@
+<Window x:Class="IntHospitalsys.StaffDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Staff Administration Panel" Height="750" Width="950"
+        WindowStartupLocation="CenterScreen" Background="#ECF0F1">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <TextBlock Text="Hospital Patient Overview" FontSize="22" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+            <DataGrid x:Name="DgAllPatients" Height="350" AutoGenerateColumns="False" IsReadOnly="True" Background="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Patient Name" Binding="{Binding FullName}" Width="*"/>
+                    <DataGridTextColumn Header="Contact Number" Binding="{Binding ContactNumber}" Width="120"/>
+                    <DataGridTextColumn Header="Assigned Doctor" Binding="{Binding AssignedDoctor}" Width="120"/>
+                    <DataGridTextColumn Header="Time Slot" Binding="{Binding TimeSlot}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <GroupBox Header="Send SMS Notification to Patients" Margin="0,15,0,0" Padding="10" Background="White">
+                <StackPanel>
+                    <TextBlock Text="Message:" FontSize="12" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <TextBox x:Name="SmsMessageInput" Height="80" Padding="10" FontSize="11" 
+                             TextWrapping="Wrap" AcceptsReturn="True" 
+                             Text="Dear patient, your appointment is scheduled. Please arrive 15 minutes early." Margin="0,0,0,10"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Send to All Patients" Click="SendSmsAll_Click" 
+                                Height="35" Width="150" Background="#3498DB" Foreground="White" Margin="0,0,10,0"/>
+                        <Button Content="Send to Selected Doctor" Click="SendSmsSelected_Click" 
+                                Height="35" Width="150" Background="#9B59B6" Foreground="White" Margin="0,0,10,0"/>
+                    </StackPanel>
+
+                    <TextBlock x:Name="SmsStatusLabel" Text="Ready to send..." 
+                               FontSize="11" Foreground="Blue" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                </StackPanel>
+            </GroupBox>
+
+            <Button Content="Refresh Global List" Margin="0,10,0,0" Height="35" Click="RefreshList_Click" Background="#34495E" Foreground="White"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+            <TextBlock Text="Doctor Management" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+            <GroupBox Header="Clinic Attendance Status" Padding="10">
+                <StackPanel>
+                    <Button x:Name="BtnSmithStatus" Content="Dr. Smith:  ARRIVED" Margin="0,5" Click="Status_Click" Tag="smith" Background="LightGreen" Foreground="Black"/>
+                    <Button x:Name="BtnJohnStatus" Content="Dr. John:  ARRIVED" Margin="0,5" Click="Status_Click" Tag="John" Background="LightGreen" Foreground="Black"/>
+                    <Button x:Name="BtnLeeStatus" Content="Dr. Lee:  ARRIVED" Margin="0,5" Click="Status_Click" Tag="Lee" Background="LightGreen" Foreground="Black"/>
+                    <Button x:Name="BtnAdamStatus" Content="Dr. Adam:  ARRIVED" Margin="0,5" Click="Status_Click" Tag="Adam" Background="LightGreen" Foreground="Black"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Total Patients per Doctor" Margin="0,20,0,0" Padding="10">
+                <TextBlock x:Name="TxtStats" Text="Loading stats..." LineHeight="25" FontSize="14"/>
+            </GroupBox>
+
+            <GroupBox Header="Selected Doctor Filter" Margin="0,20,0,0" Padding="10">
+                <ComboBox x:Name="DoctorFilterCombo" Height="30" FontSize="12" Margin="0,0,0,10">
+                    <ComboBoxItem>All Doctors</ComboBoxItem>
+                    <ComboBoxItem>smith</ComboBoxItem>
+                    <ComboBoxItem>John</ComboBoxItem>
+                    <ComboBoxItem>Lee</ComboBoxItem>
+                    <ComboBoxItem>Adam</ComboBoxItem>
+                </ComboBox>
+            </GroupBox>
+
+            <Button Content="Logout" Margin="0,20,0,0" Click="Logout_Click" Background="#7F8C8D" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

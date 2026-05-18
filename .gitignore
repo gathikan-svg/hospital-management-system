@@ -1,0 +1,46 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.iml
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+[Uu]serInterfaceState.xcuserstate
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Config files with credentials
+app.config
+web.config

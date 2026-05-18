@@ -1,0 +1,60 @@
+<Window x:Class="IntHospitalsys.PatientRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Patient Registration" Height="650" Width="500"
+        WindowStartupLocation="CenterScreen" Background="#F4F7F6">
+    <Grid Margin="30">
+        <StackPanel>
+            <TextBlock Text="New Patient Registration" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Full Name" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox x:Name="TxtFullName" Height="35" Padding="5"/>
+
+            <TextBlock Text="Address" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox x:Name="TxtAddress" Height="60" TextWrapping="Wrap" AcceptsReturn="True" Padding="5"/>
+
+            <TextBlock Text="Contact Number" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox x:Name="TxtContact" Height="35" Padding="5"/>
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Appointment Date" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <DatePicker x:Name="DpAppDate" Height="35"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Time Slot" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="CmbTimeSlot" Height="35">
+                        <ComboBoxItem Content="08:00 AM - 08:15 AM"/>
+                        <ComboBoxItem Content="08:15 AM - 08:30 AM"/>
+                        <ComboBoxItem Content="08:30 AM - 08:45 AM"/>
+                        <ComboBoxItem Content="08:45 AM - 09:00 AM"/>
+                        <ComboBoxItem Content="09:00 AM - 09:15 AM"/>
+                        <ComboBoxItem Content="09:15 AM - 09:30 AM"/>
+                        <ComboBoxItem Content="09:30 AM - 09:45 AM"/>
+                        <ComboBoxItem Content="09:45 AM - 10:00 AM"/>
+                        <ComboBoxItem Content="10:00 AM - 10:15 AM"/>
+                        <ComboBoxItem Content="10:15 AM - 10:30 AM"/>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Assigned Doctor" Margin="0,15,0,5" FontWeight="SemiBold"/>
+            <ComboBox x:Name="CmbDoctor" Height="35">
+                <ComboBoxItem Content="Dr.smith - Neurology"/>
+                <ComboBoxItem Content="Dr.John - Cardiology"/>
+                <ComboBoxItem Content="Dr.Lee - Orthopedics"/>
+                <ComboBoxItem Content="Dr.Adam - Pediatrics"/>
+            </ComboBox>
+
+            <Button x:Name="BtnRegister" Content="Register Patient" Height="45" Margin="0,30,0,0"
+                    Background="#27AE60" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                    Click="BtnRegister_Click"/>
+            <Button x:Name="BtnBack" Content="Back to Login" Height="40" Margin="0,10,0,0"
+                    Background="#7F8C8D" Foreground="White" Click="BtnBack_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
