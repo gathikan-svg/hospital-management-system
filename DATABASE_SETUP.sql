@@ -1,5 +1,4 @@
 -- Hospital Management System Database Setup
--- Run this SQL script in SQL Server Management Studio
 
 CREATE TABLE Users (
     UserId INT PRIMARY KEY IDENTITY(1,1),
